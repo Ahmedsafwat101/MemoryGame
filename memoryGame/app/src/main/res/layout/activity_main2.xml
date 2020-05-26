@@ -5,7 +5,7 @@
     android:id="@+id/butstart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/soo"
+    android:background="@drawable/memorystartpic_"
     tools:context=".Main2Activity">
 
     <Button

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void generateQuestion()
     {
+;
         Random rand= new Random();
         int num1=rand.nextInt(21); //btw 0 and 20
         int num2= rand.nextInt(21);//btw 0 and 20
@@ -164,10 +166,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void buttClicked(View view)
     {
-        ImageView image= (ImageView) view;
+        final ImageView image= (ImageView) view;
         String tag= (String) view.getTag();
         //Log.i("Butt clicked", (String) view.getTag());
-        //image.setImageResource(R.drawable.para_normalsira);
+         image.setImageResource(R.drawable.para_normalsira);
          if(view.getTag().toString().equals(Integer.toString(correctAnswerpostion+1)))
          {
              Log.i("as", "correct ");
@@ -180,6 +182,14 @@ public class MainActivity extends AppCompatActivity {
          }
          generateQuestion();
          numberofQes++;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                image.setImageResource(R.drawable.para_barajsira);
+            }
+        }, 300);
+
     }
     public  void animation(int var1,int var2)
     {
